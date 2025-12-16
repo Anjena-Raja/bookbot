@@ -3,6 +3,10 @@ import stats
 import sys
 
 def main() -> None:
+    '''
+    Computes statistics and prints report. 
+    If wrong number of srguments is provided, displays proper useage and quits. 
+    '''
     if len(sys.argv) != 2:
         print('Usage: python3 main.py <path_to_book>')
         sys.exit(1)
@@ -16,6 +20,7 @@ def main() -> None:
 
 
 def get_book_text(file_path: Path) -> str:
+    'Opens file_path and returns its text'
     file: 'File Object' = file_path.open('r')
     try:
         return file.read()
@@ -23,6 +28,7 @@ def get_book_text(file_path: Path) -> str:
         file.close()
 
 def pretty_print_str(path_str: str, num_words: int, sorted_frequencies: list[dict[str, str|int]]) -> str:
+    'Returns a formatted string for the bookbot report'
     output_str = '============ BOOKBOT ============\n'
     output_str += f'Analyzing book found at {path_str}...\n'
     output_str += '----------- Word Count ----------\n'
