@@ -16,7 +16,7 @@ def main() -> None:
     num_words = stats.count_words(book_text)
     char_freq_dict: dict[str, int] = stats.compute_character_frequency_dict(book_text)
     sorted_frequencies: list[dict[str, str|int]] = stats.make_sorted_frequencies(char_freq_dict)
-    print(pretty_print_str(book_path, num_words, sorted_frequencies))
+    print(pretty_print_str(str(book_path), num_words, sorted_frequencies))
 
 
 def get_book_text(file_path: Path) -> str:
